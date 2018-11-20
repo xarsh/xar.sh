@@ -1,0 +1,5 @@
+baseURL: https://xar.sh
+languageCode: ja-jp
+title: xar.sh
+parmalinks:
+  post: /post/:filename/

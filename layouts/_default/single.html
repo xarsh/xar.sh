@@ -1,0 +1,26 @@
+{{ define "main" }}
+    <!-- title #{title} - xarsh
+    meta(property="og:title" content=`${title} - xarsh`)
+    meta(property="og:url" content=`https://xar.sh/post/${postId}`)
+    meta(name="twitter:site" content=`https://xar.sh/post/${postId}`) -->
+    
+    <main class="post">
+        <div class="date"><em>{{ .Date.Format "2006-01-02" }}</em></div>
+        <h3 class="title">{{ .Title }}</h3>
+        <div class="body">{{ .Content }}</div>
+    </main>
+
+    <div id="disqus_thread" noci="noci"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'https://xar.sh/post/'
+            this.page.identifier = ''
+        };
+        (function() {
+            var s = document.createElement('script')
+            s.src = '//xarsh.disqus.com/embed.js'
+            s.setAttribute('data-timestamp', +new Date())
+            document.head.appendChild(s)
+        })()
+    </script>
+{{ end }}
