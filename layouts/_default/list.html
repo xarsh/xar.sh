@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="post">
+    <h3 class="title">{{ .Title }}</h3>
+    <div class="body">
+        <ul>
+        <!-- Ranges through content/post/*.md -->
+        {{ range .Pages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+            </li>
+        {{ end }}
+        </ul>
+    </div>
+</main>
+{{ end }}

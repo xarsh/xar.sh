@@ -1,3 +1,163 @@
 html {
     background: #f5f7fa;
 }
+body {
+    max-width: 980px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+code {
+    font-family: Hack, monospace;
+}
+p {
+    line-height: 2.2;
+}
+p img {
+    vertical-align: middle;
+}
+
+
+main {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 36px 0 72px;
+}
+.home {
+    min-height: calc(100vh - 160px);
+}
+.home .face {
+    max-width: 168px;
+    min-width: 168px;
+}
+.archive span {
+    display: inline-block;
+}
+.archive a:visited {
+    color: #a7c;
+}
+ul li {
+    padding-left: 1rem;
+}
+
+
+header {
+    margin-bottom: 1em;
+    padding: 10px 20px 0;
+}
+header .menu {
+    margin: 4px 0 0;
+}
+header .menu .item {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+
+.post * {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 720px;
+}
+.post .date {
+    color: #777;
+    margin-bottom: 0.7em;
+}
+.post .title {
+    margin: 0 auto 2em;
+    font-size: 2.4rem;
+}
+.post img,
+.post iframe,
+.post video,
+.post object {
+    display: block;
+    max-width: 100%;
+}
+.post iframe,
+.post object,
+.post video {
+    margin: 2em auto;
+}
+.post [alt=right],
+.post [alt=left] {
+    max-width: 50%;
+    margin: 7px auto;
+}
+.post [alt=right] {
+    float: right;
+    border-left: 24px solid transparent;
+}
+.post [alt=small] {
+    float: right;
+    max-width: 30%;
+    border-left: 24px solid transparent;
+}
+.post [alt=left] {
+    float: left;
+    border-right: 4px solid transparent;
+}
+.post [alt=left] + [alt=right] {
+    border-left-width: 4px;
+}
+.post [alt=full] {
+    width: 95vw;
+    max-width: 95vw;
+    position: relative;
+    right: calc((95vw - 100%) / 2);
+}
+.post .body {
+    max-width: 100%;
+}
+.post .body li > p:first-child {
+    display: inline;
+}
+.post .body li > p:not(:first-child) {
+    padding-left: 1em;
+}
+.post .body p::after {
+    clear: both;
+    content: ' ';
+    display: table;
+}
+.post .body p img + img,
+.post .body p img + video,
+.post .body p video + img,
+.post .body p video + video {
+    margin-top: 7px;
+}
+.post .body h1,
+.post .body h2,
+.post .body h3,
+.post .body h4,
+.post .body h5,
+.post .body h6 {
+    font-size: 2.2rem;
+    margin-top: 3.6rem;
+}
+.post .body code {
+    font-size: 1.3rem;
+}
+.post .body pre code {
+    font-size: 1.2rem;
+    background: transparent;
+}
+.post #disqus_thread {
+    margin-top: 4em;
+}
+.post .error {
+    text-align: center;
+}
+#disqus_thread {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+
+footer {
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    color: #999;
+    text-align: center;
+}

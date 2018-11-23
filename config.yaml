@@ -1,5 +1,6 @@
 baseURL: https://xar.sh
 languageCode: ja-jp
 title: xar.sh
+disqusShortname: xarsh
 permalinks:
   post: /post/:filename/
