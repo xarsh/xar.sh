@@ -136,12 +136,11 @@ header .menu .item {
     font-size: 2.2rem;
     margin-top: 3.6rem;
 }
-.post .body code {
-    font-size: 1.3rem;
+.post .body pre {
+    border-left-color: #d1d1d1;
 }
 .post .body pre code {
     font-size: 1.2rem;
-    background: transparent;
 }
 .post #disqus_thread {
     margin-top: 4em;
@@ -152,6 +151,7 @@ header .menu .item {
 #disqus_thread {
     max-width: 720px;
     margin: 0 auto;
+    padding: 0 8px;
 }
 
 
