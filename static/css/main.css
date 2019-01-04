@@ -141,6 +141,7 @@ header .menu .item {
 }
 .post .body pre code {
     font-size: 1.2rem;
+    border: 1px solid #ddd;
 }
 .post #disqus_thread {
     margin-top: 4em;
