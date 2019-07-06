@@ -12,7 +12,7 @@ code {
     font-family: Hack, monospace;
 }
 p {
-    line-height: 2.2;
+    line-height: 2;
 }
 p img {
     vertical-align: middle;
@@ -30,6 +30,9 @@ main {
 .home .face {
     max-width: 168px;
     min-width: 168px;
+}
+.home ul {
+    margin-top: -22px;
 }
 .archive span {
     display: inline-block;

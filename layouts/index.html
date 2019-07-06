@@ -3,9 +3,17 @@
     <div class="row">
         <div class="column column-25"><img class="face" width="168" height="168" src="/img/profile.jpg" /><br/><small>Sandia Peak, Albuquerque</small></div>
         <div class="column">
-            <p>ないとうです。1990年生まれ27歳。</p>
-            <p>このサイトは私の個人的な日記です。 旅行の記録とかなんかそんなのばかりですが、エストニアへ留学をする人からよく参考にされています。
+            <p>ないとうです。1990年生まれ。</p>
+            <p>
+                このサイトは私の個人的な日記です。 旅行や留学について記録しています。
             </p>
+            <p>最近の記事：</p>
+            <ul>
+                {{ range first 5 (where .Data.Pages "Section" "post") }}
+                    <li><a href="{{ .Permalink }}">{{  .Date.Format "2006-01-02" }} {{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+            <p>よく読まれている記事：</p>
             <ul>
                 <li><a href="/post/1412315684/">エストニアに留学してみた</a></li>
                 <li><a href="/post/1466554357/">未踏スーパークリエイターになった</a></li>
