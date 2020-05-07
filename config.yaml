@@ -3,3 +3,7 @@ languageCode: ja-jp
 title: xar.sh
 permalinks:
   post: /post/:filename/
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
