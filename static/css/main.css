@@ -83,6 +83,9 @@ header .menu .item {
 .post video {
     margin: 2em auto;
 }
+.post img + em {
+    float: right;
+}
 .post [alt=right],
 .post [alt=left] {
     max-width: 50%;
