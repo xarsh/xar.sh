@@ -75,7 +75,8 @@ header .menu .item {
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    margin-left: 12px;
+    margin-top: 6px;
+    display: block;
 }
 .post img,
 .post iframe,
