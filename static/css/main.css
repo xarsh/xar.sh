@@ -71,6 +71,12 @@ header .menu .item {
     margin: 0 auto 2em;
     font-size: 2.4rem;
 }
+.post .title small {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin-left: 12px;
+}
 .post img,
 .post iframe,
 .post video,
