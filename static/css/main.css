@@ -78,6 +78,9 @@ header .menu .item {
     margin-top: 6px;
     display: block;
 }
+.post ul li {
+    padding-left: 3rem;
+}
 .post img,
 .post iframe,
 .post video,
