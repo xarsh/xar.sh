@@ -15,7 +15,7 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build
-        run: hugo
+        run: hugo --buildFuture
 
       - name: Install surge and fire deployment
         uses: actions/setup-node@v1
