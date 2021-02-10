@@ -40,7 +40,7 @@ main {
 .archive a:visited {
     color: #a7c;
 }
-ul li {
+.post.archive ul li {
     padding-left: 1rem;
 }
 
