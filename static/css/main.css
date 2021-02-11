@@ -20,9 +20,9 @@ p img {
 
 
 main {
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 36px 0 72px;
+    padding: 36px 12px 72px;
 }
 .home {
     min-height: calc(100vh - 160px);
