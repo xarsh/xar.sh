@@ -20,10 +20,11 @@ p img {
 
 
 main {
-    max-width: 100%;
+    max-width: 90%;
     margin: 0 auto;
-    padding: 36px 12px 72px;
+    padding: 36px 0 72px;
 }
+/* place footer to the bottom of the page */
 .home {
     min-height: calc(100vh - 160px);
 }
@@ -122,6 +123,9 @@ header .menu .item {
     position: relative;
     right: calc((95vw - 100%) / 2);
 }
+.post [alt=portrait] {
+    max-width: 50%;
+}
 .post .body {
     max-width: 100%;
 }
@@ -175,4 +179,10 @@ footer {
     padding-bottom: 2.5rem;
     color: #999;
     text-align: center;
+}
+footer a {
+    color: #999;
+}
+footer a:hover {
+    color: #000;
 }
