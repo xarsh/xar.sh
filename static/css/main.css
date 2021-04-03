@@ -88,6 +88,9 @@ header .menu .item {
     display: block;
     max-width: 100%;
 }
+.post iframe {
+    margin-bottom: 2em;
+}
 .post video {
     margin: 2em auto;
 }

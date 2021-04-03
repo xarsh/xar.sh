@@ -7,7 +7,11 @@
 <meta property="og:image" content="/img/ogp.png" />
 <meta property="og:description" content="my personal blog" />
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} - {{ end }}xarsh">
-<meta http-equiv="Content-Security-Policy" content="default-src https: 'self'; script-src https://platform.twitter.com https://static.cloudflareinsights.com; object-src 'none'; style-src https://cdn.jsdelivr.net 'self'">
+<meta http-equiv="Content-Security-Policy" content="
+    default-src https: 'self';
+    object-src 'none';
+    style-src https://cdn.jsdelivr.net 'self' 'unsafe-inline';
+">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
 <link rel="icon" href="/img/favicon.png" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/normalize.css/normalize.min.css,npm/milligram@1.3.0/dist/milligram.min.css,gh/milligram/milligram-themes/src/blue.min.css" />
