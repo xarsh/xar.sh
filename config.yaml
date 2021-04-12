@@ -8,4 +8,4 @@ markup:
     renderer:
       unsafe: true
   highlight:
-    style: 'arduino'
+    style: 'abap'
