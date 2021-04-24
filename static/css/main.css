@@ -29,8 +29,8 @@ main {
     min-height: calc(100vh - 160px);
 }
 .home .face {
-    max-width: 168px;
-    min-width: 168px;
+    max-width: 95%;
+    min-width: 95%;
 }
 .home ul {
     margin-top: -22px;
