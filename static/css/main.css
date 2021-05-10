@@ -119,7 +119,7 @@ header .menu .item {
     position: relative;
     right: calc((95vw - 100%) / 2);
 }
-.post [alt=portrait], .post .narrow {
+.post [alt=portrait] {
     max-width: 65%;
 }
 .post .body {
