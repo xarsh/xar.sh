@@ -120,7 +120,7 @@ header .menu .item {
     right: calc((95vw - 100%) / 2);
 }
 .post [alt=portrait] {
-    max-width: 65%;
+    max-width: 75%;
 }
 .post .body {
     max-width: 100%;
