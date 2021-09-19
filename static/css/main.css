@@ -22,7 +22,7 @@ p img {
 main {
     max-width: 90%;
     margin: 0 auto;
-    padding: 36px 0 72px;
+    padding: 36px 0 8px;
 }
 /* place footer to the bottom of the page */
 .home {
@@ -157,18 +157,9 @@ header .menu .item {
 .post .body pre code {
     font-size: 1.2rem;
 }
-.post #disqus_thread {
-    margin-top: 4em;
-}
 .post .error {
     text-align: center;
 }
-#disqus_thread {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 8px;
-}
-
 
 footer {
     margin-top: 2.5rem;
