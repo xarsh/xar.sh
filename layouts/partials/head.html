@@ -1,10 +1,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noarchive" />
+{{ if (isset .Params "thumbnail") }}
+<meta name="twitter:image" content="{{ .Params.thumbnail }}" />
+<meta property="og:image" content="{{ .Params.thumbnail }}" />
+{{ else }}
 <meta name="twitter:image" content="/img/ogp.png" />
+<meta property="og:image" content="/img/ogp.png" />
+{{ end }}
 <meta property="og:site_name" content="xarsh" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="/img/ogp.png" />
 <meta property="og:description" content="My personal blog" />
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} - {{ end }}xarsh">
 <meta name="referrer" content="none" />
