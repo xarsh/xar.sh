@@ -1,6 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noarchive" />
+<meta name="referrer" content="none" />
 {{ if (isset .Params "thumbnail") }}
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="{{ .Params.thumbnail }}" />
@@ -12,15 +13,6 @@
 <meta property="og:site_name" content="xarsh" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="My personal blog" />
-<meta name="referrer" content="none" />
-<meta http-equiv="Content-Security-Policy" content="
-    default-src https: 'self';
-    style-src https: 'self' 'unsafe-inline';
-    script-src https://platform.twitter.com/ https://static.cloudflareinsights.com/;
-    object-src 'none';
-    base-uri 'none';
-    form-action 'none';
-">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🌃</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.4.1/dist/milligram.min.css" integrity="sha256-baSxKEISHdSAWiipPkWRuquIMjgNIR//a++CyhnQdIM=" crossorigin="anonymous">
