@@ -23,4 +23,3 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 <title>{{ if .Title }}{{ .Title }} - {{ end }}xarsh</title>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "617b303a92724b45aa9183469e886bcd"}'></script>
