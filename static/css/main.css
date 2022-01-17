@@ -113,12 +113,6 @@ header .menu .item {
 .post [alt=left] + [alt=right] {
     border-left-width: 4px;
 }
-.post [alt=full] {
-    width: 95vw;
-    max-width: 95vw;
-    position: relative;
-    right: calc((95vw - 100%) / 2);
-}
 .post [alt=portrait] {
     max-width: 75%;
 }
