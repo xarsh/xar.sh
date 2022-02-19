@@ -1,6 +1,8 @@
 baseURL: https://xar.sh
 languageCode: ja-jp
+defaultContentLanguage: ja
 title: xar.sh
+hasCJKLanguage: true
 permalinks:
   post: /post/:filename/
 markup:
