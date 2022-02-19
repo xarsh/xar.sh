@@ -1,10 +1,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="{{ if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else if .Summary }}{{ .Summary | plainify }}{{ else }}xarshのブログ{{ end }}" />
 <meta name="robots" content="noarchive" />
 <meta name="referrer" content="none" />
 {{ if (isset .Params "thumbnail") }}
-<meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="{{ .Params.thumbnail }}" />
+<meta name="twitter:card" content="summary_large_image">
 {{ else }}
 <meta property="og:image" content="/img/ogp.png" />
 {{ end }}
