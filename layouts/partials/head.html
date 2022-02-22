@@ -1,25 +1,25 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="{{ if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else if .Summary }}{{ .Summary | plainify }}{{ else }}xarshのブログ{{ end }}" />
-<meta name="robots" content="noarchive" />
-<meta name="referrer" content="no-referrer" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="{{ if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else if .Summary }}{{ .Summary | plainify }}{{ else }}xarshのブログ{{ end }}">
+<meta name="robots" content="noarchive">
+<meta name="referrer" content="none">
 {{ if (isset .Params "thumbnail") }}
-<meta property="og:image" content="{{ .Params.thumbnail }}" />
+<meta property="og:image" content="{{ .Params.thumbnail }}">
 <meta name="twitter:card" content="summary_large_image">
 {{ else }}
-<meta property="og:image" content="/img/ogp.png" />
+<meta property="og:image" content="/img/ogp.png">
 {{ end }}
 <meta name="twitter:creator" content="@TakaoNaito">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} - {{ end }}xarsh">
-<meta property="og:site_name" content="xarsh" />
-<meta property="og:type" content="website" />
-<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+<meta property="og:site_name" content="xarsh">
+<meta property="og:type" content="website">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🌃</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.4.1/dist/milligram.min.css" integrity="sha256-baSxKEISHdSAWiipPkWRuquIMjgNIR//a++CyhnQdIM=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram-themes@0.0.2/src/blue.css" integrity="sha256-y1u1R6kMQBPqeBrSSCM1me82WMqHwu8j/yj/XtxmXc8=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css" integrity="sha256-4zFMlAMYc7jMvg5XQq6KKUh6LWfQW1Ioc41hMjdy+NQ=" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/main.css?{{ now.Unix }}" />
+<link rel="stylesheet" href="/css/main.css?{{ now.Unix }}">
 {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 <title>{{ if .Title }}{{ .Title }} - {{ end }}xarsh</title>
