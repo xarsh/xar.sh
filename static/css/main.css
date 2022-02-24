@@ -1,5 +1,5 @@
 :root {
-    --accent-bg: #f5f7fa;
+    --accent-bg: transparent;
     --bg: #f5f7fa;
     --text: #444;
     --border: transparent;
@@ -8,10 +8,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --accent: #819fcc;
-        --accent-bg: transparent;
         --bg: #212121;
         --text: #dcdcdc;
-        --text-light: #ababab;
     }
     header .logo {
         filter: invert(100%);
@@ -58,7 +56,7 @@ header nav a:last-child {
 .post .body {
     margin-top: 4rem;
 }
-.post .body > div {
+.post .body > div, .post .body > iframe {
     margin: 0 auto;
 }
 .post img {
