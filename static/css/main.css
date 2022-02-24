@@ -5,6 +5,18 @@
     --border: transparent;
     --mono-font: Hack, monospace;
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent: #819fcc;
+        --accent-bg: transparent;
+        --bg: #212121;
+        --text: #dcdcdc;
+        --text-light: #ababab;
+    }
+    header .logo {
+        filter: invert(100%);
+    }
+}
 body {
     font-size: 0.9rem;
     line-height: 2;
