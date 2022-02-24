@@ -1,0 +1,6 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: document-domain=(); camera=(); microphone=(); interest-cohort=()
+  Content-Security-Policy: frame-ancestors 'none';
