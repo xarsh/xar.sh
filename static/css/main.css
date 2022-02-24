@@ -56,7 +56,7 @@ header nav a:last-child {
 .post .body {
     margin-top: 4rem;
 }
-.post .body > div, .post .body > iframe {
+.post .body > div {
     margin: 0 auto;
 }
 .post img {
