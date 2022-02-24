@@ -16,13 +16,16 @@ body > header {
 }
 header .logo {
     position: absolute;
-    top: 1.5rem;
+    top: 1rem;
     left: 0;
 }
 header nav {
     position: absolute;
     top: 0;
     right: 0;
+}
+header nav a:last-child {
+    margin-right: 0;
 }
 
 .home {
