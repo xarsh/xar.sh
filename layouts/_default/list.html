@@ -1,18 +1,19 @@
 {{ define "main" }}
 <main class="post archive">
-    <h3 class="title">
-        <span>Archive</span>
-        <small class="rss-link">
+    <h1 class="title">Archive</h1>
+    <div>
+        <small>
             <span>Subscribe via </span>
             <a href="/index.xml">RSS Feed</a>
         </small>
-    </h3>
+    </div>
     <div class="body">
         <ul>
         <!-- Ranges through content/post/*.md -->
         {{ range .Pages }}
             <li>
-                <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} {{ .Title }}</a>
+                <span>{{ .Date.Format "2006-01-02" }}</span>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
             </li>
         {{ end }}
         </ul>

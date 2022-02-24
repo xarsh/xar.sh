@@ -1,6 +1,6 @@
 {{ define "main" }}
     <main class="post">
-        <div class="date"><em>{{ .Date.Format "2006-01-02" }}</em></div>
+        <div class="date"><time>{{ .Date.Format "2006-01-02" }}</time></div>
         <h1 class="title">{{ .Title }}</h1>
         <div class="body">{{ .Content }}</div>
     </main>

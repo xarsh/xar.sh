@@ -1,168 +1,68 @@
-html {
-    background: #f5f7fa;
+:root {
+    --accent-bg: #f5f7fa;
+    --bg: #f5f7fa;
+    --text: #444;
+    --border: transparent;
+    --mono-font: Hack, monospace;
 }
 body {
-    max-width: 980px;
-    margin: 0 auto;
-    font-family: sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-}
-code {
-    font-family: Hack, monospace;
-}
-p {
+    font-size: 0.9rem;
     line-height: 2;
 }
-p img {
-    vertical-align: middle;
+
+body > header {
+    position: relative;
+    grid-column: 2;
+}
+header .logo {
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+}
+header nav {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-
-main {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 36px 0 8px;
-}
-/* place footer to the bottom of the page */
 .home {
-    min-height: calc(100vh - 160px);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 1rem 0;
 }
 .home .face {
-    max-width: 95%;
-    min-width: 95%;
-}
-.home ul {
-    margin-top: -22px;
-}
-.archive span {
-    display: inline-block;
-}
-.archive a:visited {
-    color: #a7c;
-}
-.post.archive ul li {
-    padding-left: 1rem;
+    padding: 1.5rem 2rem 0 0;
 }
 
-
-header {
-    margin-bottom: 1em;
-    padding: 10px 20px 0;
-}
-header .menu {
-    margin: 4px 0 0;
-}
-header .menu .item {
-    margin-left: 20px;
-    display: inline-block;
-}
-
-
-.post * {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 720px;
-}
-.post .date {
-    color: #777;
-    margin-bottom: 0.7em;
+.post {
+    padding-top: 4rem;
 }
 .post .title {
-    margin: 0 auto 2em;
-    font-size: 2.4rem;
-}
-.post .title small {
-    font-size: 1.2rem;
-    letter-spacing: 0.1rem;
-    margin-top: 6px;
-    display: block;
-}
-.post ul li {
-    padding-left: 3rem;
-}
-.post img,
-.post iframe,
-.post video {
-    display: block;
-    max-width: 100%;
-}
-.post iframe {
-    margin-bottom: 2em;
-}
-.post video {
-    margin: 2em auto;
-}
-.post img + em {
-    float: right;
-}
-.post [alt=right],
-.post [alt=left] {
-    max-width: 50%;
-    margin: 7px auto;
-}
-.post [alt=right] {
-    float: right;
-    border-left: 24px solid transparent;
-}
-.post [alt=left] {
-    float: left;
-    border-right: 4px solid transparent;
-}
-.post [alt=left] + [alt=right] {
-    border-left-width: 4px;
-}
-.post [alt=portrait] {
-    max-width: 75%;
+    font-size: 1.6rem;
 }
 .post .body {
-    max-width: 100%;
+    margin-top: 4rem;
 }
-.post .body li > p:first-child {
-    display: inline;
+.post .body > div {
+    margin: 0 auto;
 }
-.post .body li > p:not(:first-child) {
-    padding-left: 1em;
+.post img {
+    max-height: 90vh;
+    vertical-align: bottom;
 }
-.post .body p::after {
-    clear: both;
-    content: ' ';
-    display: table;
+.post figure {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
-.post .body p img + img,
-.post .body p img + video,
-.post .body p video + img,
-.post .body p video + video {
-    margin-top: 7px;
-}
-.post .body h1,
-.post .body h2,
-.post .body h3,
-.post .body h4,
-.post .body h5,
-.post .body h6 {
-    font-size: 2.2rem;
-    margin-top: 3.6rem;
-}
-.post .body pre {
-    border-left-color: #d1d1d1;
-}
-.post .body pre code {
-    font-size: 1.2rem;
-}
-.post .error {
-    text-align: center;
+.post figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
 }
 
-footer {
-    margin-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    color: #999;
-    text-align: center;
+.archive li {
+    margin-top: 0.8rem;
+    list-style-type: none;
 }
-footer a {
-    color: #999;
-}
-footer a:hover {
-    color: #000;
-}
+
+/* https://discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439/2 */
+p:empty {display:none;}
