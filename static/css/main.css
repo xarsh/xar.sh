@@ -14,7 +14,7 @@
     }
 }
 html {
-    font-size: 13px;
+    font-size: 14px;
 }
 body {
     line-height: 2;
@@ -69,7 +69,6 @@ header nav a:last-child {
     margin-bottom: 1.5rem;
 }
 .post figcaption {
-    font-size: 0.8rem;
     font-style: italic;
 }
 

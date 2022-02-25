@@ -1,5 +1,6 @@
 build:
 	hugo --buildFuture
+	cp _headers ./public/
 new:
 	hugo new post/`date +%Y`/`date +%s`.md
 serve:
