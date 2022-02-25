@@ -16,7 +16,6 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🌃</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simpledotcss@2.0.5/simple.min.css" integrity="sha256-tc9PoxgxM62upegwoSC1cvFt4HGBc1fDJV6JzgzgWaE=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css" integrity="sha256-4zFMlAMYc7jMvg5XQq6KKUh6LWfQW1Ioc41hMjdy+NQ=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css?{{ now.Unix }}">
 {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}

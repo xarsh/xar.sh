@@ -1,13 +1,11 @@
 :root {
-    --accent-bg: transparent;
     --bg: #f5f7fa;
     --text: #444;
-    --border: transparent;
-    --mono-font: Hack, monospace;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --accent: #819fcc;
+        --accent-bg: transparent;
         --bg: #212121;
         --text: #dcdcdc;
     }
@@ -15,12 +13,15 @@
         filter: invert(100%);
     }
 }
+html {
+    font-size: 13px;
+}
 body {
-    font-size: 0.9rem;
     line-height: 2;
 }
 
 body > header {
+    border: none;
     position: relative;
     grid-column: 2;
 }
@@ -72,10 +73,17 @@ header nav a:last-child {
     font-style: italic;
 }
 
+.archive ul {
+    padding-left: 0;
+}
 .archive li {
     margin-top: 0.8rem;
     list-style-type: none;
 }
+.archive time {
+    font-family: var(--mono-font);
+    margin-right: 0.5rem;
+}
 
-/* https://discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439/2 */
+/* discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439 */
 p:empty {display:none;}
