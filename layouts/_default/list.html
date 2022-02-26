@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="post archive">
+<div class="post archive">
     <h1 class="title">Archive</h1>
     <div>
         <small>
@@ -12,11 +12,11 @@
         <!-- Ranges through content/post/*.md -->
         {{ range .Pages }}
             <li>
-                <time>{{ .Date.Format "2006-01-02" }}&nbsp;</time>
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                <div><time>{{ .Date.Format "2006-01-02" }}</time></div>
+                <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
             </li>
         {{ end }}
         </ul>
     </div>
-</main>
+</div>
 {{ end }}

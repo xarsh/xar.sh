@@ -14,7 +14,7 @@
     }
 }
 html {
-    font-size: 13px;
+    font-size: 14px;
 }
 body {
     line-height: 2;
@@ -55,7 +55,7 @@ header nav a:last-child {
     padding-top: 4rem;
 }
 .post .title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 .post .body {
     margin-top: 4rem;
@@ -74,12 +74,15 @@ header nav a:last-child {
     padding-left: 0;
 }
 .archive li {
-    margin-top: 0.8rem;
     list-style-type: none;
+    display: grid;
+    grid-template-columns: max-content auto;
+    margin-bottom: 1rem;
 }
 .archive time {
     font-family: var(--mono-font);
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-right: 0.5rem;
 }
 
 /* discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439 */
