@@ -14,10 +14,13 @@
     }
 }
 html {
-    font-size: 14px;
+    font-size: 13px;
 }
 body {
     line-height: 2;
+}
+img {
+    vertical-align: bottom;
 }
 
 body > header {
@@ -62,11 +65,6 @@ header nav a:last-child {
 }
 .post img {
     max-height: 90vh;
-    vertical-align: bottom;
-}
-.post figure {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 .post figcaption {
     font-style: italic;
@@ -81,7 +79,7 @@ header nav a:last-child {
 }
 .archive time {
     font-family: var(--mono-font);
-    margin-right: 0.5rem;
+    font-size: 0.9rem;
 }
 
 /* discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439 */
