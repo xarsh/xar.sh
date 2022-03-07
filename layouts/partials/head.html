@@ -1,7 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="{{ if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else if .Summary }}{{ .Summary | plainify }}{{ else }}xarshのブログ{{ end }}">
-<meta name="robots" content="noarchive">
 <meta name="referrer" content="no-referrer">
 {{ if (isset .Params "thumbnail") }}
 <meta property="og:image" content="{{ .Params.thumbnail }}">
