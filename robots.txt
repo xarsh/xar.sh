@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xar.sh/sitemap.xml
