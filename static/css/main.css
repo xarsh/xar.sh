@@ -86,6 +86,3 @@ header nav a:last-child {
     font-size: 1rem;
     margin-right: 0.5rem;
 }
-
-/* discourse.gohugo.io/t/empty-p-p-tags-generated-when-using-shortcodes/3439 */
-p:empty {display:none;}
