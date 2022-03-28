@@ -18,7 +18,9 @@ html {
 }
 body {
     /* https://blog.yoshinonaco.com/font-family-2020/ */
-    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
+        "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium",
+        "Yu Gothic", Verdana, Meiryo, sans-serif;
     line-height: 2;
 }
 img, video {
