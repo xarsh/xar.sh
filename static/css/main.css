@@ -68,7 +68,7 @@ header nav a:last-child {
     margin: 0 auto;
 }
 .post img {
-    max-height: 90vh;
+    max-height: 85vh;
 }
 .post figcaption {
     font-style: italic;
