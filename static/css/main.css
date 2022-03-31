@@ -13,9 +13,20 @@
         filter: invert(100%);
     }
 }
+/* font sizes */
 html {
     font-size: 14px;
 }
+h2 {
+    font-size: 1.44rem;
+}
+h3 {
+    font-size: 1.15rem;
+}
+h4 {
+    font-size: 0.96rem;
+}
+
 body {
     /* https://blog.yoshinonaco.com/font-family-2020/ */
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
@@ -48,11 +59,11 @@ header nav a:last-child {
 
 .home {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 3fr 4fr;
     padding: 1rem 0;
 }
 .home .face {
-    padding: 1.5rem 2rem 0 0;
+    padding: 1.5rem 1.5rem 0 0;
 }
 
 .post {
