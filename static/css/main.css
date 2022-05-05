@@ -59,7 +59,7 @@ header nav a:last-child {
 
 .home {
     display: grid;
-    grid-template-columns: 3fr 4fr;
+    grid-template-columns: 1fr 2fr;
     padding: 1rem 0;
 }
 .home .face {
