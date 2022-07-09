@@ -71,6 +71,9 @@ header nav a:last-child {
 .post .body {
     margin-top: 4rem;
 }
+.post .body a {
+    word-break: break-all;
+}
 .post .body > div {
     margin: 0 auto;
 }
