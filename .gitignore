@@ -1,2 +1,3 @@
 /public
 .iml
+.hugo_build.lock
