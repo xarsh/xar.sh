@@ -1,3 +1,9 @@
-<video autoplay loop muted playsinline>
-    <source src='{{ .Get "src" }}' type="video/mp4">
-</video>
+
+<p>
+    <figure>
+        <video autoplay loop muted playsinline>
+            <source src='{{ .Get "src" }}' type="video/mp4">
+        </video>
+        {{ if .Get "title" }}<figcaption>{{ .Get "title" }}</figcaption>{{ end }}
+    </figure>
+</p>
