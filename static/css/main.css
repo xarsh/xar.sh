@@ -77,7 +77,7 @@ header nav a:last-child {
 .post .body > div {
     margin: 0 auto;
 }
-.post img {
+.post img, .post video {
     max-height: 85vh;
 }
 .post figcaption {
