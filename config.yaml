@@ -11,3 +11,8 @@ markup:
       unsafe: true
   highlight:
     style: 'abap'
+disableKinds:
+  - taxonomyTerm
+taxonomies:
+  category: categories
+  tag: tags
