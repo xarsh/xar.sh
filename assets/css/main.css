@@ -84,6 +84,27 @@ header nav a:last-child {
     font-style: italic;
 }
 
+.sibling {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+}
+.prev, .next {
+    font-size: 0.8rem;
+    margin-top: 3rem;
+}
+.prev:not(:empty)::before {
+    content: "←";
+    margin-right: 0.5rem;
+}
+.next {
+    text-align: right;
+}
+.next:not(:empty)::after {
+    content: "→";
+    margin-left: 0.5rem;
+}
+
 .archive ul {
     padding-left: 0;
 }
