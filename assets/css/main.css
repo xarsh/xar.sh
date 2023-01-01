@@ -23,6 +23,9 @@ h3 {
 h4 {
     font-size: 0.96rem;
 }
+pre code {
+    font-size: 0.8rem;
+}
 
 body {
     line-height: 2;
