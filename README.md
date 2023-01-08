@@ -15,7 +15,7 @@ $ make serve
 ## Get thumbnail list
 
 ```sh
-deno run --unstable --allow-net get-thumbnails.js
+deno run --allow-net get-thumbnails.js
 ```
 
 ## Find 404 links
