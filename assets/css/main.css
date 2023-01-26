@@ -2,6 +2,7 @@
     --bg: #f5f7fa;
     --accent-bg: transparent;
     --text: #444;
+    font-size: 18px;
 }
 @media (prefers-color-scheme: dark) {
     :root {
