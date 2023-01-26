@@ -6,11 +6,6 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
-@media only screen and (max-width: 720px) {
-    :root {
-        font-size: 16px;
-    }
-}
 @media (prefers-color-scheme: dark) {
     :root {
         --accent: #819fcc;
@@ -120,10 +115,22 @@ header nav a:last-child {
     list-style-type: none;
     display: grid;
     grid-template-columns: max-content auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 .archive time {
     font-family: var(--mono-font);
     font-size: 1rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 720px) {
+    :root {
+        font-size: 16px;
+    }
+    .archive li {
+        display: block;
+    }
+    .archive time {
+        font-size: 0.9rem;
+    }
 }
