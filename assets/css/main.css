@@ -126,7 +126,17 @@ header .search-form {
     margin-right: 1rem;
 }
 
+.only-mobile {
+    display: none !important;
+}
+
 @media only screen and (max-width: 720px) {
+    .only-mobile {
+        display: block !important;
+    }
+    .only-desktop {
+        display: none !important;
+    }
     .archive li {
         display: block;
     }

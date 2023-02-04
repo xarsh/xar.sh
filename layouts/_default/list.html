@@ -8,6 +8,13 @@
         </small>
     </div>
     <div class="body">
+        <form action="https://ui.customsearch.ai/hosted-page" method="get" class="search-form only-mobile">
+            <input type="hidden" name="customconfig" value="3cbf3bd2-7f29-4162-a669-9fb89e7b3e87" />
+            <input type="hidden" name="market" value="ja-JP" />
+            <input type="hidden" name="version" value="latest" />
+            <input type="text" name="q" placeholder="Keywords..." />
+            <input type="submit" value="Search" />
+        </form>
         <ul>
         <!-- Ranges through content/post/*.md -->
         {{ range .Pages }}
