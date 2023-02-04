@@ -3,5 +3,15 @@
 </a>
 <nav>
     <a href="/">ホーム</a>
-    <a href="/post/">過去ログ</a>
+    {{ if eq .Kind "section" }}
+        <form action="https://ui.customsearch.ai/hosted-page" method="get" class="search-form">
+            <input type="hidden" name="customconfig" value="3cbf3bd2-7f29-4162-a669-9fb89e7b3e87" />
+            <input type="hidden" name="market" value="ja-JP" />
+            <input type="hidden" name="version" value="latest" />
+            <input type="text" name="q" placeholder="Keywords..." />
+            <input type="submit" value="Search" />
+        </form>
+    {{ else }}
+        <a href="/post/">過去ログ</a>
+    {{ end }}
 </nav>

@@ -2,7 +2,7 @@
     --bg: #f5f7fa;
     --accent-bg: transparent;
     --text: #444;
-    font-size: 18px;
+    font-size: 16px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -54,6 +54,9 @@ header nav {
 }
 header nav a:last-child {
     margin-right: 0;
+}
+header .search-form {
+    display: inline;
 }
 
 .home {
@@ -124,9 +127,6 @@ header nav a:last-child {
 }
 
 @media only screen and (max-width: 720px) {
-    :root {
-        font-size: 16px;
-    }
     .archive li {
         display: block;
     }
