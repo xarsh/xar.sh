@@ -2,7 +2,7 @@
     --bg: #f5f7fa;
     --accent-bg: transparent;
     --text: #444;
-    font-size: 16px;
+    font-size: 18px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -44,7 +44,7 @@ body > header {
 }
 header .logo {
     position: absolute;
-    top: 1rem;
+    top: 1.5rem;
     left: 0;
 }
 header nav {
