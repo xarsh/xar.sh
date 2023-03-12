@@ -83,6 +83,9 @@ header .search-form {
 .post .body > div {
     margin: 0 auto;
 }
+.post figure {
+    text-align: center;
+}
 .post img, .post video {
     max-height: 85vh;
 }
