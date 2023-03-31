@@ -91,6 +91,7 @@ header .search-form {
 }
 .post figcaption {
     font-style: italic;
+    margin: 0.3rem 0 0;
 }
 
 .sibling {
