@@ -9,6 +9,8 @@
 <meta property="og:image" content="/img/ogp.png">
 {{ end }}
 <meta name="twitter:creator" content="@TakaoNaito">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else if .Summary }}{{ .Summary | plainify }}{{ else }}xarshのブログ{{ end }}">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} - {{ end }}xarsh">
 <meta property="og:site_name" content="xarsh">
 <meta property="og:type" content="website">
