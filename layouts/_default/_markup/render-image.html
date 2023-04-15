@@ -1,6 +1,8 @@
 <p>
   <figure>
     <img src="{{ .Destination | safeURL }}" alt="" loading="lazy" decoding="async">
-    {{ if .Text }}<figcaption>{{ .Text }}</figcaption>{{ end }}
+    {{ if .Text }}
+      <figcaption><p>{{ .Text }}</p></figcaption>
+    {{ end }}
   </figure>
 </p>
