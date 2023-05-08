@@ -1,5 +1,5 @@
 import { Dropbox } from 'npm:dropbox'
-import S3 from 'npm:aws-sdk/clients/s3.js'
+import { S3Client, PutObjectCommand } from 'https://esm.sh/@aws-sdk/client-s3@3.241.0'
 import pMap, { pMapSkip } from 'npm:p-map'
 import sortBy from 'npm:just-sort-by'
 
@@ -11,12 +11,12 @@ const { ACCOUNT_ID, ACCESS_KEY_ID, SECRET_ACCESS_KEY, DROPBOX_ACCESS_TOKEN } = D
 
 const dbx = new Dropbox({ accessToken: DROPBOX_ACCESS_TOKEN })
 
-const s3 = new S3({
+const s3 = new S3Client({
+  region: 'auto',
   endpoint: `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`,
-  accessKeyId: ACCESS_KEY_ID,
-  secretAccessKey: SECRET_ACCESS_KEY,
-  signatureVersion: 'v4'
+  credentials: { accessKeyId: ACCESS_KEY_ID, secretAccessKey: SECRET_ACCESS_KEY }
 })
+
 
 const ffmpeg = str => {
   const args = ['-y', '-loglevel', 'error', ...str.split(' ')] // -y: overwrites output file if it exists
@@ -33,14 +33,14 @@ const files = await dbx.filesListFolder({ path }).then(res => res.result.entries
 const results = await pMap(files, async (file, idx) => {
   console.log(`Processing ${file.name}...`);
   const { result: image } = await dbx.filesDownload({ path: file.path_display })
-  const imageId = image.id.split(/[:]/).pop().toLowerCase()
+  const imageId = image.content_hash
   const filePath = `/tmp/${imageId}`
 
   await Deno.writeFile(filePath, image.fileBinary)
 
   if (image.name.endsWith('.png')) { // PNG doesn't have EXIF
     const Body = ffmpeg(`-i ${filePath} ${filePath}.webp`)
-    await s3.putObject({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }).promise()
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
     return { time: 0, line: `![](https://img.xar.sh/${imageId}.webp)` }
   }
 
@@ -52,11 +52,11 @@ const results = await pMap(files, async (file, idx) => {
   const width = Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
   if (image.media_info.metadata['.tag'] === 'photo') {
     const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 ${filePath}.webp`)
-    await s3.putObject({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }).promise()
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
     return { time, line: `![${idx}](https://img.xar.sh/${imageId}.webp)` }
   } else if (image.media_info.metadata['.tag'] === 'video') {
     const Body = ffmpeg(`-i ${filePath} -an -vf scale=${width}:-1 -vcodec libx264 -pix_fmt yuv420p ${filePath}.mp4`)
-    await s3.putObject({ Bucket, Key: `${imageId}.mp4`, ContentType: 'video/mp4', Body }).promise()
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.mp4`, ContentType: 'video/mp4', Body }))
     return { time, line: `{{< video src="https://img.xar.sh/${imageId}.mp4" >}}` }
   }
   console.log(`Unknown media type: ${image.name}`)
