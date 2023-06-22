@@ -1,4 +1,4 @@
-import { Dropbox } from 'npm:dropbox'
+import { Dropbox } from 'https://esm.sh/dropbox@10.34.0'
 import { S3Client, PutObjectCommand } from 'https://esm.sh/@aws-sdk/client-s3@3.241.0'
 import pMap, { pMapSkip } from 'npm:p-map'
 import sortBy from 'npm:just-sort-by'
@@ -9,14 +9,13 @@ const MAX_WIDTH = 1280 // Max width of the image
 
 const { ACCOUNT_ID, ACCESS_KEY_ID, SECRET_ACCESS_KEY, DROPBOX_ACCESS_TOKEN } = Deno.env.toObject()
 
-const dbx = new Dropbox({ accessToken: DROPBOX_ACCESS_TOKEN })
+const dbx = new Dropbox({ accessToken: DROPBOX_ACCESS_TOKEN, fetch })
 
 const s3 = new S3Client({
   region: 'auto',
   endpoint: `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`,
   credentials: { accessKeyId: ACCESS_KEY_ID, secretAccessKey: SECRET_ACCESS_KEY }
 })
-
 
 const ffmpeg = str => {
   const args = ['-y', '-loglevel', 'error', ...str.split(' ')] // -y: overwrites output file if it exists
@@ -33,15 +32,15 @@ const files = await dbx.filesListFolder({ path }).then(res => res.result.entries
 const results = await pMap(files, async (file, idx) => {
   console.log(`Processing ${file.name}...`);
   const { result: image } = await dbx.filesDownload({ path: file.path_display })
-  const imageId = image.content_hash
+  const imageId = image.content_hash.slice(0, 16) // Use first 16 chars of the hash as the image ID
   const filePath = `/tmp/${imageId}`
 
-  await Deno.writeFile(filePath, image.fileBinary)
+  await image.fileBlob.arrayBuffer().then(buf => Deno.writeFile(filePath, new Uint8Array(buf)))
 
   if (image.name.endsWith('.png')) { // PNG doesn't have EXIF
-    const Body = ffmpeg(`-i ${filePath} ${filePath}.webp`)
-    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
-    return { time: 0, line: `![](https://img.xar.sh/${imageId}.webp)` }
+    const Body = ffmpeg(`-i ${filePath} ${filePath}.jpeg`)
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.jpeg`, ContentType: 'image/jpeg', Body }))
+    return { time: 0, line: `![](https://img.xar.sh/${imageId}.jpeg)` }
   }
 
   if (!image.media_info) {
@@ -51,9 +50,9 @@ const results = await pMap(files, async (file, idx) => {
   const time = new Date(image.media_info.metadata.time_taken).getTime()
   const width = Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
   if (image.media_info.metadata['.tag'] === 'photo') {
-    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 ${filePath}.webp`)
-    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
-    return { time, line: `![${idx}](https://img.xar.sh/${imageId}.webp)` }
+    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 ${filePath}.jpeg`)
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.jpeg`, ContentType: 'image/jpeg', Body }))
+    return { time, line: `![${idx}](https://img.xar.sh/${imageId}.jpeg)` }
   } else if (image.media_info.metadata['.tag'] === 'video') {
     const Body = ffmpeg(`-i ${filePath} -an -vf scale=${width}:-1 -vcodec libx264 -pix_fmt yuv420p ${filePath}.mp4`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.mp4`, ContentType: 'video/mp4', Body }))
