@@ -50,7 +50,7 @@ const results = await pMap(files, async (file, idx) => {
   const time = new Date(image.media_info.metadata.time_taken).getTime()
   const width = Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
   if (image.media_info.metadata['.tag'] === 'photo') {
-    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -update true ${filePath}.jpeg`)
+    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -q:v 2 -update true ${filePath}.jpeg`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.jpeg`, ContentType: 'image/jpeg', Body }))
     return { time, line: `![${idx}](https://img.xar.sh/${imageId}.jpeg)` }
   } else if (image.media_info.metadata['.tag'] === 'video') {
