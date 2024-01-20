@@ -1,6 +1,6 @@
 build:
 	hugo --buildFuture
-	npx -y pagefind --site public
+	npm_config_yes=true npx pagefind --site public
 	cp _headers ./public/
 	cp robots.txt ./public/
 new:
