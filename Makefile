@@ -1,5 +1,6 @@
 build:
 	hugo --buildFuture
+	npx -y pagefind --site public
 	cp _headers ./public/
 	cp robots.txt ./public/
 new:

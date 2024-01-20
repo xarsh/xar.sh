@@ -28,3 +28,7 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 <title>{{ if .Title }}{{ .Title }} - {{ end }}xarsh</title>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>window.addEventListener('DOMContentLoaded', event => new PagefindUI({ element: "#search" }))</script>

@@ -30,9 +30,6 @@ pre code {
     font-size: 0.75rem;
 }
 
-body {
-    line-height: 2;
-}
 img, video {
     vertical-align: bottom;
 }
@@ -63,6 +60,7 @@ header .search-form {
     display: grid;
     grid-template-columns: 1fr 2fr;
     padding: 1rem 0;
+    line-height: 2;
 }
 .home .face {
     padding: 1.5rem 1.5rem 0 0;
@@ -76,6 +74,7 @@ header .search-form {
 }
 .post .body {
     margin-top: 4rem;
+    line-height: 2;
 }
 .post .body a {
     word-break: break-all;
@@ -118,34 +117,31 @@ header .search-form {
     margin-left: 0.5rem;
 }
 
-.archive ul {
+.archive .body ul {
     padding-left: 0;
 }
-.archive li {
+.archive .body li {
     list-style-type: none;
     display: grid;
     grid-template-columns: max-content auto;
     margin-bottom: 1.2rem;
 }
-.archive time {
+.archive .body time {
     font-family: var(--mono-font);
     font-size: 1rem;
     margin-right: 1rem;
 }
 
-.only-mobile {
-    display: none !important;
+#search {
+    margin: 24px 0 -48px;
+}
+#search .pagefind-ui__search-clear {
+    display: none;
 }
 
 @media only screen and (max-width: 720px) {
     :root {
         font-size: 16px;
-    }
-    .only-mobile {
-        display: block !important;
-    }
-    .only-desktop {
-        display: none !important;
     }
     .archive li {
         display: block;
