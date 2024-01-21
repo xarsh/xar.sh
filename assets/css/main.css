@@ -119,6 +119,7 @@ header .search-form {
 
 .archive .body ul {
     padding-left: 0;
+    margin-top: -24px;
 }
 .archive .body li {
     list-style-type: none;
@@ -133,7 +134,7 @@ header .search-form {
 }
 
 #search {
-    margin: 24px 0 -48px;
+    margin: 24px 0;
 }
 #search .pagefind-ui__search-clear {
     display: none;
