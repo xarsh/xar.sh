@@ -7,9 +7,8 @@ const path = '/tmp' // Dropbox path to download
 const Bucket = 'xarsh-img' // R2 bucket name
 const MAX_WIDTH = 1280 // Max width of the image
 
-const {
-  R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, DBX_CLIENT_ID, DBX_CLIENT_SECRET, DBX_REFRESH_TOKEN
-} = Deno.env.toObject()
+const { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY } = Deno.env.toObject()
+const { DBX_CLIENT_ID, DBX_CLIENT_SECRET, DBX_REFRESH_TOKEN } = Deno.env.toObject()
 
 const dbx = new Dropbox({ fetch, clientId: DBX_CLIENT_ID, clientSecret: DBX_CLIENT_SECRET, refreshToken: DBX_REFRESH_TOKEN })
 
