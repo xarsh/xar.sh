@@ -12,7 +12,7 @@ markup:
   highlight:
     style: 'abap'
 disableKinds:
-  - taxonomyTerm
+  - taxonomy
 taxonomies:
   category: categories
   tag: tags
