@@ -57,7 +57,7 @@ const results = await pMap(files, async (file, idx) => {
   } else if (image.media_info.metadata['.tag'] === 'video') {
     const Body = ffmpeg(`-i ${filePath} -an -vf scale=${width}:-1 -vcodec libx264 -pix_fmt yuv420p -y -update true ${filePath}.mp4`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.mp4`, ContentType: 'video/mp4', Body }))
-    return { time, line: `{{< video src="https://img.xar.sh/${imageId}.mp4" >}}` }
+    return { time, line: `{{< video title="${idx}" src="https://img.xar.sh/${imageId}.mp4" >}}` }
   }
   console.log(`Unknown media type: ${image.name}`)
   return pMapSkip
