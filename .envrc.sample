@@ -1,0 +1,7 @@
+export R2_ACCOUNT_ID=""
+export R2_ACCESS_KEY_ID=""
+export R2_SECRET_ACCESS_KEY=""
+
+export DBX_CLIENT_ID=""
+export DBX_CLIENT_SECRET=""
+export DBX_REFRESH_TOKEN=""

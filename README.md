@@ -12,10 +12,10 @@ $ make new
 $ make serve
 ```
 
-## Get thumbnail list
+## Generate image urls
 
 ```sh
-deno run --allow-net get-thumbnails.js
+deno run -A script/download.js
 ```
 
 ## Find 404 links
