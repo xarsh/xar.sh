@@ -12,9 +12,17 @@ $ make new
 $ make serve
 ```
 
+## Set envs
+```sh
+# set creds in `.mise.toml` and run:
+mise set
+```
+
 ## Generate image urls
 
 ```sh
+mise install deno
+mise use deno
 deno run -A script/download.js
 ```
 
