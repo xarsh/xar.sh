@@ -1,5 +1,5 @@
 import { Dropbox } from 'https://esm.sh/dropbox@10.34.0'
-import { S3Client, PutObjectCommand } from 'https://esm.sh/@aws-sdk/client-s3@3.241.0'
+import { S3Client, PutObjectCommand } from 'https://esm.sh/@aws-sdk/client-s3@3.717.0'
 import pMap, { pMapSkip } from 'npm:p-map'
 import sortBy from 'npm:just-sort-by'
 
