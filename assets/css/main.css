@@ -95,6 +95,9 @@ header .search-form {
 .post figcaption p {
     margin: 0.2rem 0 0;
 }
+.post rt {
+    margin-bottom: -4px;
+}
 
 .sibling {
     display: grid;
