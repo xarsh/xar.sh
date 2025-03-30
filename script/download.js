@@ -54,7 +54,8 @@ const results = await pMap(files, async (file, idx) => {
     const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -q:v 2 -update true ${filePath}.jpeg`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.jpeg`, ContentType: 'image/jpeg', Body }))
     return { time, line: `![${idx}](https://img.xar.sh/${imageId}.jpeg)` }
-  } else if (image.media_info.metadata['.tag'] === 'video') {
+  }
+  if (image.media_info.metadata['.tag'] === 'video') {
     const Body = ffmpeg(`-i ${filePath} -an -vf scale=${width}:-1 -vcodec libx264 -pix_fmt yuv420p -y -update true ${filePath}.mp4`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.mp4`, ContentType: 'video/mp4', Body }))
     return { time, line: `{{< video title="${idx}" src="https://img.xar.sh/${imageId}.mp4" >}}` }
@@ -63,4 +64,6 @@ const results = await pMap(files, async (file, idx) => {
   return pMapSkip
 }, { concurrency: 1 })
 
-sortBy(results, 'time').forEach(result => console.log(result.line))
+for (const result of sortBy(results, 'time')) {
+  console.log(result.line)
+}
