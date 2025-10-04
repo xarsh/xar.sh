@@ -51,9 +51,9 @@ const results = await pMap(files, async (file, idx) => {
   const time = new Date(image.media_info.metadata.time_taken).getTime()
   const width = Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
   if (image.media_info.metadata['.tag'] === 'photo') {
-    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -q:v 2 -update true ${filePath}.jpeg`)
-    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.jpeg`, ContentType: 'image/jpeg', Body }))
-    return { time, line: `![${idx}](https://img.xar.sh/${imageId}.jpeg)` }
+    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -q:v 80 -update true ${filePath}.webp`)
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
+    return { time, line: `![${idx}](https://img.xar.sh/${imageId}.webp)` }
   }
   if (image.media_info.metadata['.tag'] === 'video') {
     const Body = ffmpeg(`-i ${filePath} -an -vf scale=${width}:-1 -vcodec libx264 -pix_fmt yuv420p -y -update true ${filePath}.mp4`)
