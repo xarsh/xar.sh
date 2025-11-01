@@ -4,13 +4,13 @@ defaultContentLanguage: ja
 title: xar.sh
 hasCJKLanguage: true
 permalinks:
-  post: /post/:filename/
+  post: /post/:contentbasename/
 markup:
   goldmark:
     renderer:
       unsafe: true
   highlight:
-    style: 'abap'
+    style: "abap"
 disableKinds:
   - taxonomy
 taxonomies:
