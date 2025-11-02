@@ -2,15 +2,9 @@
     --bg: #f5f7fa;
     --accent-bg: transparent;
     --text: #444;
-    font-size: 18px;
-    font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    "Noto Sans JP",
-    "BIZ UDPGothic",
-    Meiryo,
-    sans-serif;
+    font-family:
+        "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+        "Noto Sans JP", "BIZ UDPGothic", Meiryo, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -36,7 +30,8 @@ pre code {
     font-size: 0.75rem;
 }
 
-img, video {
+img,
+video {
     vertical-align: bottom;
 }
 
@@ -91,10 +86,13 @@ header .search-form {
 .post figure {
     text-align: center;
 }
-.post img, .post video {
+.post img,
+.post video {
     max-height: 85vh;
 }
 .post figcaption {
+    font-size: 0.9rem;
+    line-height: 1.5;
     font-style: italic;
     margin: 0;
 }
@@ -110,7 +108,8 @@ header .search-form {
     grid-template-columns: 1fr 1fr;
     justify-items: stretch;
 }
-.prev, .next {
+.prev,
+.next {
     font-size: 0.8rem;
     margin-top: 3rem;
 }
@@ -150,9 +149,6 @@ header .search-form {
 }
 
 @media only screen and (max-width: 720px) {
-    :root {
-        font-size: 16px;
-    }
     .archive li {
         display: block;
     }
