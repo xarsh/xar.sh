@@ -76,6 +76,8 @@ header .search-form {
 .post .body {
     margin-top: 4rem;
     line-height: 2;
+    text-align: justify;
+    letter-spacing: -0.01em;
 }
 .post .body a {
     word-break: break-all;
@@ -149,6 +151,9 @@ header .search-form {
 }
 
 @media only screen and (max-width: 720px) {
+    :root {
+        font-size: 15px;
+    }
     .archive li {
         display: block;
     }
