@@ -1,0 +1,31 @@
+baseURL = 'https://xar.sh'
+languageCode = 'ja-jp'
+defaultContentLanguage = 'ja'
+title = 'xar.sh'
+hasCJKLanguage = true
+
+[params]
+  description = 'Takao Naito の個人サイト。旅行記など'
+  [params.author]
+    name = 'Takao Naito'
+    email = 'xarsh@outlook.com'
+
+[services]
+  [services.rss]
+    limit = 20
+
+[permalinks]
+  post = '/post/:contentbasename/'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'abap'
+
+disableKinds = ['taxonomy']
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
