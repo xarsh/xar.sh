@@ -26,10 +26,12 @@ h3 {
 h4 {
     font-size: 0.96rem;
 }
+pre {
+    line-height: 1.5;
+}
 pre code {
     font-size: 0.75rem;
 }
-
 img,
 video {
     vertical-align: bottom;
@@ -87,6 +89,8 @@ header .search-form {
 }
 .post figure {
     text-align: center;
+    border-radius: var(--standard-border-radius);
+    overflow: hidden;
 }
 .post img,
 .post video {
