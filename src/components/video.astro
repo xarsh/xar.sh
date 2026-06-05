@@ -1,0 +1,15 @@
+---
+interface Props {
+  src: string
+  title?: string
+}
+
+const { src, title } = Astro.props
+---
+
+<figure>
+  <video autoplay loop muted playsinline>
+    <source src={src} type="video/mp4">
+  </video>
+  {title && <figcaption>{title}</figcaption>}
+</figure>

@@ -1,3 +1,6 @@
+[tools]
+node = "26"
+
 [env]
 R2_ACCOUNT_ID=""
 R2_ACCESS_KEY_ID=""

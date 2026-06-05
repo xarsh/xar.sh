@@ -1,0 +1,8 @@
+name = "xarsh"
+compatibility_date = "2025-04-01"
+
+[assets]
+directory = "./dist"
+
+[build]
+command = "npm run build"
