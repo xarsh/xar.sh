@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '../../layouts/base-layout.astro'
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('post')).sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  return posts.map((post, i) => ({
+    params: { id: post.id },
+    props: {
+      post,
+      prev: posts[i - 1] ?? null,
+      next: posts[i + 1] ?? null
+    }
+  }))
+}
+
+const { post, prev, next } = Astro.props
+const { Content } = await render(post)
+const description = post.data.title
+---
+
+<BaseLayout title={post.data.title} description={description} thumbnail={post.data.thumbnail} permalink={Astro.url.href}>
+  <div class="post" data-pagefind-body>
+    <div class="date" data-pagefind-ignore>
+      <time>{post.data.date.toISOString().slice(0, 10)}</time>
+    </div>
+    <h1 class="title">{post.data.title}</h1>
+    <div class="body"><Content /></div>
+  </div>
+
+  <nav class="sibling">
+    <div class="prev">{prev && <a href={`/post/${prev.id}/`}>{prev.data.title}</a>}</div>
+    <div class="next">{next && <a href={`/post/${next.id}/`}>{next.data.title}</a>}</div>
+  </nav>
+</BaseLayout>

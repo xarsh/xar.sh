@@ -1,0 +1,14 @@
+<div class="flex">
+  <slot />
+</div>
+
+<style>
+  .flex {
+    display: flex;
+    gap: 0.2em;
+    align-items: flex-start;
+  }
+  .flex > :global(p) {
+    display: contents;
+  }
+</style>
