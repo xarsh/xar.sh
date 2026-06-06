@@ -24,8 +24,6 @@
     "@aws-sdk/client-s3": "^3.1062.0",
     "@biomejs/biome": "2.4.16",
     "dropbox": "^10.34.0",
-    "just-sort-by": "^3.2.0",
-    "p-map": "^7.0.4",
     "pagefind": "^1.5.2"
   }
 }
