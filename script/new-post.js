@@ -8,7 +8,7 @@ do {
   id = String(Math.floor(Math.random() * 900_000_000) + 100_000_000)
 } while (existing.has(id))
 
-const date = new Date().toISOString().slice(0, 10)
+const date = '9999-12-31'
 const path = `${dir}/${id}.mdoc`
 
 writeFileSync(path, `---\ntitle: \ndate: ${date}\n---\n`)
