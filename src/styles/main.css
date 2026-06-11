@@ -81,9 +81,8 @@ header .search-form {
   line-height: 2;
   text-align: justify;
   letter-spacing: -0.01em;
-}
-.post .body a {
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  word-break: auto-phrase;
 }
 .post .body > div,
 .post .body > article > div {
