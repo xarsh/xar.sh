@@ -10,7 +10,7 @@ const MAX_WIDTH = 1280 // Max width of the image
 const { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY } = process.env
 const { DBX_CLIENT_ID, DBX_CLIENT_SECRET, DBX_REFRESH_TOKEN } = process.env
 
-const dbx = new Dropbox({ fetch, clientId: DBX_CLIENT_ID, clientSecret: DBX_CLIENT_SECRET, refreshToken: DBX_REFRESH_TOKEN })
+const dbx = new Dropbox({ clientId: DBX_CLIENT_ID, clientSecret: DBX_CLIENT_SECRET, refreshToken: DBX_REFRESH_TOKEN })
 
 const s3 = new S3Client({
   region: 'auto',
@@ -35,13 +35,27 @@ for (const [idx, file] of files.entries()) {
   const imageId = image.content_hash.slice(0, 16) // Use first 16 chars of the hash as the image ID
   const filePath = `/tmp/${imageId}`
 
-  const buf = await image.fileBlob.arrayBuffer()
-  writeFileSync(filePath, new Uint8Array(buf))
+  writeFileSync(filePath, image.fileBinary)
 
   if (image.name.endsWith('.png')) { // PNG doesn't have EXIF
     const Body = ffmpeg(`-i ${filePath} -y -update true ${filePath}.png`)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.png`, ContentType: 'image/png', Body }))
     results.push({ time: 0, line: `![](https://img.xar.sh/${imageId}.png)` })
+    continue
+  }
+
+  if (image.name.endsWith('.heic')) {
+    const width = image.media_info?.metadata?.dimensions?.width
+      ? Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
+      : MAX_WIDTH
+    // ffmpeg for heic→png conversion, then cwebp for webp encoding (matching photo branch)
+    ffmpeg(`-i ${filePath} -y -update true ${filePath}.png`)
+    const outPath = `${filePath}.webp`
+    execFileSync('cwebp', ['-quiet', '-resize', String(width), '0', '-q', '80', `${filePath}.png`, '-o', outPath], { stdio: 'ignore' })
+    const Body = readFileSync(outPath)
+    await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
+    const time = image.media_info?.metadata?.time_taken ? new Date(image.media_info.metadata.time_taken).getTime() : 0
+    results.push({ time, line: `![${idx}](https://img.xar.sh/${imageId}.webp)` })
     continue
   }
 
@@ -52,7 +66,9 @@ for (const [idx, file] of files.entries()) {
   const time = new Date(image.media_info.metadata.time_taken).getTime()
   const width = Math.min(image.media_info.metadata.dimensions.width, MAX_WIDTH)
   if (image.media_info.metadata['.tag'] === 'photo') {
-    const Body = ffmpeg(`-i ${filePath} -vf scale=${width}:-1 -y -q:v 80 -update true ${filePath}.webp`)
+    const outPath = `${filePath}.webp`
+    execFileSync('cwebp', ['-quiet', '-resize', String(width), '0', '-q', '80', filePath, '-o', outPath], { stdio: 'ignore' })
+    const Body = readFileSync(outPath)
     await s3.send(new PutObjectCommand({ Bucket, Key: `${imageId}.webp`, ContentType: 'image/webp', Body }))
     results.push({ time, line: `![${idx}](https://img.xar.sh/${imageId}.webp)` })
     continue
