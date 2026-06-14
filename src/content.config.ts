@@ -7,7 +7,7 @@ const post = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    thumbnail: z.url().optional()
+    thumbnail: z.preprocess((v) => v || undefined, z.url().optional())
   })
 })
 

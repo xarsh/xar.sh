@@ -11,5 +11,5 @@ do {
 const date = '9999-12-31'
 const path = `${dir}/${id}.mdoc`
 
-writeFileSync(path, `---\ntitle: \ndate: ${date}\n---\n`)
+writeFileSync(path, `---\ntitle: \ndate: ${date}\nthumbnail: \n---\n`)
 console.log(path)
