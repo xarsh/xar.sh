@@ -19,8 +19,6 @@ mise set
 
 ## Generate image urls
 
-Requires `ffmpeg` and `cwebp` (`brew install ffmpeg webp`).
-
 ```sh
 npm run download
 ```
