@@ -80,7 +80,6 @@ header .search-form {
   margin-top: 4rem;
   line-height: 2;
   overflow-wrap: anywhere;
-  word-break: auto-phrase;
 }
 .post .body > div,
 .post .body > article > div {
@@ -95,6 +94,10 @@ header .search-form {
 .post img,
 .post video {
   max-height: 85vh;
+  /* width/height 属性はアスペクト比の情報源としてのみ使い、
+     max-height 制約時も縦横比を保つ（上下つぶれ防止） */
+  width: auto;
+  height: auto;
 }
 .post figcaption {
   font-size: 0.9rem;
