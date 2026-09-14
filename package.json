@@ -18,13 +18,12 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.8",
+    "p-limit": "^7.3.2",
     "simpledotcss": "^2.3.7"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.1068.0",
     "@biomejs/biome": "2.4.16",
-    "@ffmpeg/ffmpeg": "^0.12.15",
-    "@ffmpeg/util": "^0.12.2",
     "dropbox": "^10.34.0",
     "pagefind": "^1.5.2",
     "sharp": "^0.35.4"
