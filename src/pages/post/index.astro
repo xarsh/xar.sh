@@ -1,8 +1,12 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/base-layout.astro'
+import { excludeDraftsInProd, isDraft } from '../../lib/draft'
 
-const posts = (await getCollection('post')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const posts = (await getCollection('post', excludeDraftsInProd)).sort((a, b) => {
+  const draftDiff = Number(isDraft(b.id)) - Number(isDraft(a.id))
+  return draftDiff !== 0 ? draftDiff : b.data.date.getTime() - a.data.date.getTime()
+})
 ---
 
 <BaseLayout title="Archive">
@@ -25,7 +29,7 @@ const posts = (await getCollection('post')).sort((a, b) => b.data.date.getTime()
         {posts.map(post => (
           <li>
             <div><time>{post.data.date.toISOString().slice(0, 10)}</time></div>
-            <div><a href={`/post/${post.id}/`}>{post.data.title}</a></div>
+            <div><a href={`/post/${post.id}/`}>{isDraft(post.id) && '[draft] '}{post.data.title}</a></div>
           </li>
         ))}
       </ul>

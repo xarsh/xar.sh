@@ -1,9 +1,10 @@
 import { getCollection } from 'astro:content'
 import rss from '@astrojs/rss'
 import type { APIContext } from 'astro'
+import { excludeDraftsInProd } from '../lib/draft'
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('post')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 20)
+  const posts = (await getCollection('post', excludeDraftsInProd)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 20)
 
   return rss({
     title: 'xar.sh',

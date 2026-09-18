@@ -22,3 +22,6 @@ mise.toml
 
 # jetbrains setting folder
 .idea/
+
+# draft posts (filename starting with `_`); rename to publish
+content/post/_*.mdoc

@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content'
 import BaseLayout from '../../layouts/base-layout.astro'
+import { excludeDraftsInProd } from '../../lib/draft'
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('post')).sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  const posts = (await getCollection('post', excludeDraftsInProd)).sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
   return posts.map((post, i) => ({
     params: { id: post.id },
     props: {
