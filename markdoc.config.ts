@@ -6,7 +6,9 @@ export default defineMarkdocConfig({
       render: component('./src/components/figure.astro'),
       attributes: {
         src: { type: String, required: true },
-        alt: { type: String }
+        alt: { type: String },
+        width: { type: Number },
+        height: { type: Number }
       }
     }
   },
@@ -19,7 +21,9 @@ export default defineMarkdocConfig({
       selfClosing: true,
       attributes: {
         src: { type: String, required: true },
-        title: { type: String }
+        title: { type: String },
+        width: { type: Number },
+        height: { type: Number }
       }
     }
   }

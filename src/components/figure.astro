@@ -1,13 +1,19 @@
 ---
+import { getDevImage } from '../lib/image-size.js'
+
 interface Props {
   src: string
   alt?: string
+  width?: number
+  height?: number
 }
 
-const { src, alt } = Astro.props
+const { src, alt, width, height } = Astro.props
+
+const img = import.meta.env.DEV ? await getDevImage(src) : { src, width, height }
 ---
 
 <figure>
-  <img src={src} alt="" loading="lazy" decoding="async">
+  <img src={img.src} data-original-src={src} alt="" loading="lazy" decoding="async" width={img.width} height={img.height}>
   {alt && <figcaption><p set:html={alt} /></figcaption>}
 </figure>

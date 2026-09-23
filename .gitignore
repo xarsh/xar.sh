@@ -23,5 +23,12 @@ mise.toml
 # jetbrains setting folder
 .idea/
 
+# local-only dev tools (never committed)
+.dev/
+
+# dev-only image cache (dimensions + local copies for offline authoring)
+.img-cache/
+r2-trash/
+
 # draft posts (filename starting with `_`); rename to publish
 content/post/_*.mdoc

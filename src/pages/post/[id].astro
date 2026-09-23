@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content'
+import { readFileSync } from 'node:fs'
 import BaseLayout from '../../layouts/base-layout.astro'
+import { loadDevTool } from '../../lib/dev-tools'
 import { excludeDraftsInProd } from '../../lib/draft'
 
 export async function getStaticPaths() {
@@ -18,6 +20,9 @@ export async function getStaticPaths() {
 const { post, prev, next } = Astro.props
 const { Content } = await render(post)
 const description = post.data.title
+
+const DevTools = await loadDevTool('dev-media-editor/dev-media-editor.astro')
+const rawMarkdown = DevTools ? readFileSync(`content/post/${post.id}.mdoc`, 'utf-8') : ''
 ---
 
 <BaseLayout title={post.data.title} description={description} thumbnail={post.data.thumbnail} permalink={Astro.url.href}>
@@ -33,4 +38,6 @@ const description = post.data.title
     <div class="prev">{prev && <a href={`/post/${prev.id}/`}>{prev.data.title}</a>}</div>
     <div class="next">{next && <a href={`/post/${next.id}/`}>{next.data.title}</a>}</div>
   </nav>
+
+  {DevTools && <DevTools rawMarkdown={rawMarkdown} />}
 </BaseLayout>

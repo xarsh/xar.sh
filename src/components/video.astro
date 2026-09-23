@@ -1,15 +1,21 @@
 ---
+import { getDevVideo } from '../lib/image-size.js'
+
 interface Props {
   src: string
   title?: string
+  width?: number
+  height?: number
 }
 
-const { src, title } = Astro.props
+const { src, title, width, height } = Astro.props
+
+const video = import.meta.env.DEV ? await getDevVideo(src) : { src, width, height }
 ---
 
 <figure>
-  <video autoplay loop muted playsinline>
-    <source src={src} type="video/mp4">
+  <video autoplay loop muted playsinline width={video.width} height={video.height}>
+    <source src={video.src} data-original-src={src} type="video/mp4">
   </video>
   {title && <figcaption>{title}</figcaption>}
 </figure>
