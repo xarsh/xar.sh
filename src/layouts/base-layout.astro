@@ -12,7 +12,7 @@ interface Props {
 const { title, description, thumbnail, type = 'website' } = Astro.props
 const pageTitle = title ? `${title} - xarsh` : 'xarsh'
 const desc = description || 'xarshのブログ'
-const ogImage = thumbnail || '/img/ogp.png'
+const ogImage = new URL(thumbnail || '/img/ogp.png', Astro.site).href
 const canonicalUrl = Astro.url.href
 const pagefindImageMeta = 'image[content]'
 const year = new Date().getFullYear()

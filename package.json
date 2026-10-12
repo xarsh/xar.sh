@@ -17,6 +17,7 @@
     "@astrojs/markdoc": "^2.0.9",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@markdoc/markdoc": "^0.5.9",
     "astro": "^7.3.2",
     "simpledotcss": "^2.3.7"
   },
