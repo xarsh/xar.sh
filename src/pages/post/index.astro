@@ -1,12 +1,8 @@
 ---
-import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/base-layout.astro'
-import { excludeDraftsInProd, isDraft } from '../../lib/draft'
+import { getPosts, isDraft } from '../../lib/posts'
 
-const posts = (await getCollection('post', excludeDraftsInProd)).sort((a, b) => {
-  const draftDiff = Number(isDraft(b.id)) - Number(isDraft(a.id))
-  return draftDiff !== 0 ? draftDiff : b.data.date.getTime() - a.data.date.getTime()
-})
+const posts = (await getPosts()).sort((a, b) => Number(isDraft(b.id)) - Number(isDraft(a.id)))
 ---
 
 <BaseLayout title="Archive">

@@ -1,6 +1,4 @@
 ---
-import { getDevImage } from '../lib/image-size.js'
-
 interface Props {
   src: string
   alt?: string
@@ -10,7 +8,8 @@ interface Props {
 
 const { src, alt, width, height } = Astro.props
 
-const img = import.meta.env.DEV ? await getDevImage(src) : { src, width, height }
+// dev 専用の寸法取得は動的 import にして、本番ビルドのモジュールグラフから外す
+const img = import.meta.env.DEV ? await (await import('../lib/image-size')).getDevImage(src) : { src, width, height }
 ---
 
 <figure>

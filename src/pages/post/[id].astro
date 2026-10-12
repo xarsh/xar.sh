@@ -1,31 +1,34 @@
 ---
-import { getCollection, render } from 'astro:content'
+import { render } from 'astro:content'
 import { readFileSync } from 'node:fs'
 import BaseLayout from '../../layouts/base-layout.astro'
+import { extractDescription } from '../../lib/description'
 import { loadDevTool } from '../../lib/dev-tools'
-import { excludeDraftsInProd } from '../../lib/draft'
+import { getPosts } from '../../lib/posts'
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('post', excludeDraftsInProd)).sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  const posts = await getPosts()
   return posts.map((post, i) => ({
     params: { id: post.id },
     props: {
       post,
-      prev: posts[i - 1] ?? null,
-      next: posts[i + 1] ?? null
+      // 新しい順なので、添字が小さいほうが新しい記事
+      prev: posts[i + 1] ?? null,
+      next: posts[i - 1] ?? null
     }
   }))
 }
 
 const { post, prev, next } = Astro.props
 const { Content } = await render(post)
-const description = post.data.title
+// 本文が画像・生 HTML のみで抽出できない記事はタイトルで代用する
+const description = extractDescription(post.body ?? '') || post.data.title
 
 const DevTools = await loadDevTool('dev-media-editor/dev-media-editor.astro')
 const rawMarkdown = DevTools ? readFileSync(`content/post/${post.id}.mdoc`, 'utf-8') : ''
 ---
 
-<BaseLayout title={post.data.title} description={description} thumbnail={post.data.thumbnail} permalink={Astro.url.href}>
+<BaseLayout title={post.data.title} description={description} thumbnail={post.data.thumbnail} type="article">
   <div class="post" data-pagefind-body>
     <div class="date" data-pagefind-ignore>
       <time>{post.data.date.toISOString().slice(0, 10)}</time>

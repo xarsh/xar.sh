@@ -14,11 +14,18 @@ const MIME: Record<string, string> = {
   mp4: 'video/mp4'
 }
 
-// dev 専用: figure.astro がキャッシュした画像を .img-cache/ から配信する（オフライン執筆用）。
-const devImageCache: AstroIntegration = {
-  name: 'dev-image-cache',
+// dev 専用の配信。本番には出さない。
+// - /.img-cache/: figure.astro がキャッシュした画像（オフライン執筆用）
+// - /sw.js: img.xar.sh の画像をキャッシュする Service Worker（src/dev/sw.js）
+const devAssets: AstroIntegration = {
+  name: 'dev-assets',
   hooks: {
     'astro:server:setup': ({ server }) => {
+      server.middlewares.use('/sw.js', async (_req, res) => {
+        res.setHeader('Content-Type', 'text/javascript')
+        res.setHeader('Cache-Control', 'no-cache')
+        res.end(await readFile(new URL('./src/dev/sw.js', import.meta.url)))
+      })
       server.middlewares.use('/.img-cache/', async (req, res, next) => {
         const name = basename(decodeURIComponent((req.url ?? '').split('?')[0]))
         try {
@@ -38,5 +45,5 @@ export default defineConfig({
   site: 'https://xar.sh',
   trailingSlash: 'always',
   devToolbar: { enabled: false },
-  integrations: [markdoc({ allowHTML: true }), sitemap(), devImageCache]
+  integrations: [markdoc({ allowHTML: true }), sitemap(), devAssets]
 })
