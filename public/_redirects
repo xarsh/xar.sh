@@ -1,1 +1,3 @@
 /post/index.xml /index.xml 301
+/post/:id/:slug /post/:id/ 301
+/post/:id/:slug/ /post/:id/ 301
