@@ -10,7 +10,8 @@
     "astro": "astro",
     "new": "node script/new-post.js",
     "download": "node script/download.js",
-    "lint": "biome check .",
+    "lint": "biome check . && npm run lint:links",
+    "lint:links": "! grep -rnE '(\\]\\(|href=\")/([^)\"]*/)?[^/)\".#?]+[)\"]' content",
     "format": "biome check --write ."
   },
   "dependencies": {
