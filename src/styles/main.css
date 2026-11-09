@@ -108,6 +108,10 @@ header .search-form {
 .post figcaption p {
   margin: 0.2rem 0 0;
 }
+.post table {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
 .post rt {
   margin-bottom: -4px;
 }
